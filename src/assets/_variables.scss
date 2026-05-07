@@ -1,0 +1,248 @@
+/*
+ * 全局 SCSS 变量和混合器
+ * 在所有组件中可直接使用这些变量
+ */
+
+/* ==================== 颜色系统 ==================== */
+
+// 主色调
+$primary-color: #007bff;
+$primary-light: #5ac0fa;
+$primary-dark: #0056b3;
+
+// 辅助色
+$success-color: #28a745;
+$success-light: #48d68f;
+$success-dark: #1e8e3c;
+
+$warning-color: #ffc107;
+$warning-light: #ffd54f;
+$warning-dark: #d39e00;
+
+$danger-color: #dc3545;
+$danger-light: #ea6b7a;
+$danger-dark: #bd2130;
+
+$info-color: #17a2b8;
+$info-light: #4dd0e1;
+$info-dark: #117a8b;
+
+// 中性色
+$text-primary: #212529;
+$text-secondary: #6c757d;
+$text-muted: #adb5bd;
+
+$bg-white: #ffffff;
+$bg-light: #f8f9fa;
+$bg-gray: #e9ecef;
+$bg-dark: #343a40;
+
+// 边框颜色
+$border-color: #dee2e6;
+$border-light: #e9ecef;
+$border-dark: #ced4da;
+
+/* ==================== 字体系统 ==================== */
+
+// 字体族
+$font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  'Liberation Mono', 'Courier New', monospace;
+
+// 字体大小
+$font-size-base: 1rem;        // 16px
+$font-size-sm: 0.875rem;      // 14px
+$font-size-lg: 1.125rem;      // 18px
+$font-size-xl: 1.25rem;       // 20px
+$font-size-2xl: 1.5rem;       // 24px
+$font-size-3xl: 2rem;         // 32px
+
+// 字重
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// 行高
+$line-height-tight: 1.25;
+$line-height-base: 1.5;
+$line-height-relaxed: 1.75;
+
+/* ==================== 间距系统 ==================== */
+
+// Spacing scale (基于 4px 网格)
+$spacing-0: 0;
+$spacing-1: 0.25rem;    // 4px
+$spacing-2: 0.5rem;     // 8px
+$spacing-3: 0.75rem;    // 12px
+$spacing-4: 1rem;       // 16px
+$spacing-5: 1.25rem;    // 20px
+$spacing-6: 1.5rem;     // 24px
+$spacing-8: 2rem;       // 32px
+$spacing-10: 2.5rem;    // 40px
+$spacing-12: 3rem;      // 48px
+$spacing-16: 4rem;      // 64px
+
+/* ==================== 圆角系统 ==================== */
+
+$border-radius-sm: 0.25rem;   // 4px
+$border-radius-base: 0.375rem; // 6px
+$border-radius-md: 0.5rem;    // 8px
+$border-radius-lg: 0.75rem;   // 12px
+$border-radius-xl: 1rem;      // 16px
+$border-radius-full: 9999px;  // 完全圆角（胶囊形）
+
+/* ==================== 阴影系统 ==================== */
+
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  0 1px 2px -1px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -2px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -4px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+/* ==================== 过渡动画 ==================== */
+
+$transition-fast: 150ms ease-in-out;
+$transition-base: 250ms ease-in-out;
+$transition-slow: 350ms ease-in-out;
+
+/* ==================== 断点系统 (响应式) ==================== */
+
+$breakpoint-xs: 480px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+/* ==================== z-index 层级 ==================== */
+
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+/* ==================== 混合器 (Mixins) ==================== */
+
+// 响应式断点 mixin
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: $breakpoint-xs) { @content; }
+  } @else if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (max-width: $breakpoint-xl) { @content; }
+  } @else if $breakpoint == 2xl {
+    @media (max-width: $breakpoint-2xl) { @content; }
+  }
+}
+
+// Flexbox 居中
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// 文本截断（单行）
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 多行文本截断
+@mixin text-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// 清除浮动
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// 绝对定位居中
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 卡片样式
+@mixin card-style($padding: $spacing-4) {
+  background: $bg-white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-base;
+  padding: $padding;
+}
+
+// 按钮基础样式
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-2 $spacing-4;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-tight;
+  border-radius: $border-radius-base;
+  transition: all $transition-fast;
+  cursor: pointer;
+  
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+// 输入框基础样式
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-2 $spacing-3;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-primary;
+  background: $bg-white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-base;
+  transition: all $transition-fast;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  }
+
+  &::placeholder {
+    color: $text-muted;
+  }
+}

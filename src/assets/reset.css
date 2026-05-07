@@ -1,0 +1,204 @@
+/*
+ * Reset CSS - 样式重置
+ * 基于 Modern CSS Reset (https://github.com/andy-css/ModernCSSReset)
+ * 适用于 Vue 3 + Vite 项目
+ */
+
+/* 1. 使用 border-box 盒模型 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. 移除默认 margin 和 padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. HTML 和 Body 基础设置 */
+html {
+  /* 平滑滚动 */
+  scroll-behavior: smooth;
+  
+  /* 防止 iOS 横向滚动 */
+  overflow-x: hidden;
+  
+  /* 文字大小调整，防止横屏时文字放大 */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  
+  /* 字体渲染优化 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* 文本换行 */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 4. 移除列表样式 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 5. 链接和按钮重置 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* 6. 图片和媒体 */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 7. 表单元素 */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* 8. 表格 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* 9. 移除动画偏好（减少动画） */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 10. 辅助功能 - Focus 可见性 */
+:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* 11. 移除默认的 fieldset 和 legend 样式 */
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/* 12. 代码块 */
+pre,
+code,
+kbd,
+samp {
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 1em;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* 13. 引用块 */
+blockquote {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 3px solid #e5e7eb;
+}
+
+/* 14. HR 分割线 */
+hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  height: 1px;
+  margin: 1rem 0;
+}
+
+/* 15. 滚动条美化（可选） */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
